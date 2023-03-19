@@ -1,11 +1,55 @@
 import React, { useRef } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, app } from "../firebase";
+
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  deleteDoc,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 
 function Signup() {
+  const db = getFirestore(app);
   const emailRef = useRef();
+  const nameRef = useRef();
+  const pinRef = useRef();
+  const addRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+
+  const updateDatabase = async () => {
+    try {
+      await setDoc(
+        doc(db, localStorage.getItem("who"), emailRef.current.value),
+        {
+          role: localStorage.getItem("who"),
+          name: nameRef.current.value,
+          pin: pinRef.current.value,
+          address: addRef.current.value,
+        }
+      );
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      alert("Incountered some issue while updating database ");
+    }
+
+    try {
+      await setDoc(
+        doc(db, localStorage.getItem("who"), emailRef.current.value),
+        {
+          role: localStorage.getItem("who"),
+          name: nameRef.current.value,
+          pin: pinRef.current.value,
+          address: addRef.current.value,
+        }
+      );
+    } catch (error) {
+      console.log("There is some issue");
+    }
+  };
 
   const varifyPassword = () => {
     if (passwordRef.current.value === confirmPasswordRef.current.value) {
@@ -29,6 +73,7 @@ function Signup() {
         console.log(user.email);
         // account created succssfully
         alert("Account created successfully");
+        updateDatabase();
       })
       .catch((error) => {
         alert(
@@ -38,6 +83,7 @@ function Signup() {
         console.log(errorMessage);
       });
   };
+
   return (
     <>
       <div className="container">
@@ -49,14 +95,52 @@ function Signup() {
         <div className="row">
           <div className="col-md-6 m-auto py-2">
             <input
-              ref={emailRef}
+              ref={nameRef}
               type="text"
               className="form-control"
-              placeholder="Enter email"
+              placeholder="Enter Name"
               required
             />
           </div>
+
           <div className="col-12"></div>
+
+          <div className="col-md-6 m-auto py-2">
+            <input
+              ref={pinRef}
+              type="text"
+              className="form-control"
+              placeholder="Enter Pin-Code"
+              required
+            />
+          </div>
+
+          <div className="col-12"></div>
+
+          <div className="col-md-6 m-auto py-2">
+            <input
+              ref={addRef}
+              type="text"
+              className="form-control"
+              placeholder="Enter Addresss"
+              required
+            />
+          </div>
+
+          <div className="col-12"></div>
+
+          <div className="col-md-6 m-auto py-2">
+            <input
+              ref={emailRef}
+              type="text"
+              className="form-control"
+              placeholder="Enter Email"
+              required
+            />
+          </div>
+
+          <div className="col-12"></div>
+
           <div className="col-md-6 m-auto py-2">
             <input
               ref={passwordRef}
@@ -66,7 +150,9 @@ function Signup() {
               required
             />
           </div>
+
           <div className="col-12"></div>
+
           <div className="col-md-6 m-auto py-2">
             <input
               ref={confirmPasswordRef}
@@ -76,7 +162,9 @@ function Signup() {
               required
             />
           </div>
+
           <div className="col-12"></div>
+
           <div className="col-md-6 m-auto py-2">
             <button
               onClick={handleSignup}

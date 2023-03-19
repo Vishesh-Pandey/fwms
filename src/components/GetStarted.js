@@ -24,7 +24,7 @@ function GetStarted() {
               <div className="card-header">Supermarket</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-shop"></i>
+                  <i className="bi bi-shop"></i>
                 </h5>
                 <p className="card-text">Solutions for near-expiry products</p>
               </div>
@@ -42,7 +42,7 @@ function GetStarted() {
               <div className="card-header">Restaurant</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-cup-hot"></i>
+                  <i className="bi bi-cup-hot"></i>
                 </h5>
                 <p className="card-text">
                   For unsold to be used for discounted selling/ donation/
@@ -63,7 +63,7 @@ function GetStarted() {
               <div className="card-header">Food Donor</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-cart-plus"></i>
+                  <i className="bi bi-cart-plus"></i>
                 </h5>
                 <p className="card-text">
                   For donating food to hunger-relief organisations/ animal
@@ -84,7 +84,7 @@ function GetStarted() {
               <div className="card-header">Organisation</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-heart-pulse"></i>
+                  <i className="bi bi-heart-pulse"></i>
                 </h5>
                 <p className="card-text">
                   To accept from donors and provide the needy.
@@ -104,7 +104,7 @@ function GetStarted() {
               <div className="card-header">Customer</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-person-circle"></i>
+                  <i className="bi bi-person-circle"></i>
                 </h5>
                 <p className="card-text">
                   Looking for products at discounted prices.
@@ -124,7 +124,7 @@ function GetStarted() {
               <div className="card-header">Animal Shelter</div>
               <div className="card-body">
                 <h5 className="card-title">
-                  <i class="bi bi-shield-check"></i>
+                  <i className="bi bi-shield-check"></i>
                 </h5>
                 <p className="card-text">
                   Accepting donations for the welfare of animals.
