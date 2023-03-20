@@ -17,9 +17,9 @@ function MyProducts() {
       collection(
         db,
         localStorage.getItem("who") +
-          "/" +
-          getAuth().currentUser.email +
-          "/products/"
+        "/" +
+        getAuth().currentUser.email +
+        "/products/"
       )
     );
     const querySnapshot = await getDocs(q);
@@ -52,20 +52,21 @@ function MyProducts() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h2>Your Products</h2>
+
           </div>
         </div>
         <div className="row">
-          <div
-            onClick={getMyProducts}
-            className={`col ${
-              products.length === 0 ? "btn btn-secondary" : "d-none"
-            }`}
-          >
-            Show Products
+          <div className="col-md-6 m-auto text-center">
+            <div
+              onClick={getMyProducts}
+              className={`col ${products.length === 0 ? "btn btn-success w-25 py-3 my-5" : "d-none"
+                }`}
+            >
+              Show Products <i class="bi bi-arrow-right-circle"></i>
+            </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row my-3">
           {products.map((element, index) => {
             return (
               <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
@@ -102,13 +103,12 @@ function MyProducts() {
           <div className="col-lg-3 col-md-4 col-sm-6">
             <button
               onClick={addProducts}
-              className={`${
-                products.length === 0
-                  ? "d-none"
-                  : "btn btn-outline-success w-100"
-              }`}
+              className={`${products.length === 0
+                ? "d-none"
+                : "btn btn-lg btn-outline-success w-25 py-2 my-5"
+                }`}
             >
-              Add product
+              <h1>+</h1>
             </button>
           </div>
         </div>

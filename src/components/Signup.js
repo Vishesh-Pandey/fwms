@@ -70,9 +70,9 @@ function Signup() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>
-              Signup / <Link to="/login">Login</Link>
-            </h1>
+            <h3 className="text-center py-5">
+              Sign up | <Link to="/login">Log in</Link>
+            </h3>
           </div>
         </div>
         <div className="row">

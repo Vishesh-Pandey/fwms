@@ -47,9 +47,9 @@ function Login() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>
-              <Link to="/signup">Signup</Link> / Login
-            </h1>
+            <h3 className="text-center py-5">
+              <Link to="/signup">Signup</Link> | Login
+            </h3>
           </div>
         </div>
         <div className="container">

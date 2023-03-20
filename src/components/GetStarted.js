@@ -5,23 +5,23 @@ function GetStarted() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container text-center">
+      <div className="container-fluid text-center bg-warning-subtle" style={{ minHeight: "100vh" }}>
         <div className="row py-5">
           <div className="col py-3">
             <h1>WHAT'S YOUR ROLE?</h1>
           </div>
         </div>
-        <div className="row py-3">
+        <div className="row py-3 px-5">
           <div className="col-lg-4 col-md-6 my-2 cursor-pointer d-flex">
             <div
               onClick={() => {
                 localStorage.setItem("who", "supermarket");
                 navigate("/signup");
               }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
               style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Supermarket</div>
+              <div className="card-header bg-light-subtle"><b>Supermarket</b></div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-shop"></i>
@@ -32,14 +32,14 @@ function GetStarted() {
           </div>
           <div className="col-lg-4 col-md-6 my-2">
             <div
-              onClick={() => {
-                localStorage.setItem("who", "restaurant");
-                navigate("/signup");
-              }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
-              style={{ cursor: "pointer" }}
+              // onClick={() => {
+              //   localStorage.setItem("who", "restaurant");
+              //   navigate("/signup");
+              // }}
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
+            // style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Restaurant</div>
+              <div className="card-header bg-light-subtle"><b>Restaurant</b> (coming soon...)</div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-cup-hot"></i>
@@ -53,14 +53,14 @@ function GetStarted() {
           </div>
           <div className="col-lg-4 col-md-6 my-2">
             <div
-              onClick={() => {
-                localStorage.setItem("who", "food_donor");
-                navigate("/signup");
-              }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
-              style={{ cursor: "pointer" }}
+              // onClick={() => {
+              //   localStorage.setItem("who", "food_donor");
+              //   navigate("/signup");
+              // }}
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
+            // style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Food Donor</div>
+              <div className="card-header bg-light-subtle"><b>Food Donor</b> (coming soon...)</div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-cart-plus"></i>
@@ -74,14 +74,14 @@ function GetStarted() {
           </div>
           <div className="col-lg-4 col-md-6 my-2">
             <div
-              onClick={() => {
-                localStorage.setItem("who", "organisation");
-                navigate("/signup");
-              }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
-              style={{ cursor: "pointer" }}
+              // onClick={() => {
+              //   localStorage.setItem("who", "organisation");
+              //   navigate("/signup");
+              // }}
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
+            // style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Organisation</div>
+              <div className="card-header bg-light-subtle"><b>Organisation</b> (coming soon...)</div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-heart-pulse"></i>
@@ -98,10 +98,10 @@ function GetStarted() {
                 localStorage.setItem("who", "customer");
                 navigate("/signup");
               }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
               style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Customer</div>
+              <div className="card-header bg-light-subtle"><b>Customer</b></div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-person-circle"></i>
@@ -114,14 +114,14 @@ function GetStarted() {
           </div>
           <div className="col-lg-4 col-md-6 my-2">
             <div
-              onClick={() => {
-                localStorage.setItem("who", "animal_shelter");
-                navigate("/signup");
-              }}
-              className="card h-100 w-75 text-bg-light mb-3 m-auto"
-              style={{ cursor: "pointer" }}
+              // onClick={() => {
+              //   localStorage.setItem("who", "animal_shelter");
+              //   navigate("/signup");
+              // }}
+              className="card h-100 w-75 text-bg-light mb-3 m-auto bg-light-subtle"
+            // style={{ cursor: "pointer" }}
             >
-              <div className="card-header">Animal Shelter</div>
+              <div className="card-header bg-light-subtle"><b>Animal Shelter</b> (coming soon...)</div>
               <div className="card-body">
                 <h5 className="card-title">
                   <i className="bi bi-shield-check"></i>
