@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
-import { signOut } from "firebase/auth";
+
+import { getAuth, signOut } from "firebase/auth";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -24,9 +24,9 @@ function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/supermarket">
             Supermarket
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

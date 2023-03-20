@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
 import Navbar from "./Navbar";
-import { Navigate, useNavigate } from "react-router-dom";
 
 function CustomerProduct() {
   const navigate = useNavigate();
