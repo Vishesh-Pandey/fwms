@@ -9,7 +9,6 @@ import Navbar from "./Navbar";
 function CustomerProduct() {
   const navigate = useNavigate();
   let supermarketArray = [];
-  const [products, setproducts] = useState([]);
   const [productInformation, setproductInformation] = useState([]);
   const [productsVisible, setproductsVisible] = useState(false);
 
@@ -23,10 +22,7 @@ function CustomerProduct() {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
       supermarketArray.push(doc.data());
-      //   setproducts((products) => [...products, doc.data()]);
     });
-    console.log("working");
-    console.log(products);
     for (let i = 0; i < supermarketArray.length; i++) {
       const q = query(
         collection(

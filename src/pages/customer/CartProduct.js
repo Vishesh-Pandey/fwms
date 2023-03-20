@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./Navbar";
 
 function CartProduct() {
-  const updateCartProduct = () => {};
   return (
     <>
       <Navbar />

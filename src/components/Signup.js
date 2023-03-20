@@ -2,14 +2,7 @@ import React, { useRef } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, app } from "../firebase";
 
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  deleteDoc,
-  setDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, setDoc, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 function Signup() {

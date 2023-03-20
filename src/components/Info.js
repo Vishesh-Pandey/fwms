@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { onSnapshot } from "firebase/firestore";
-import Navbar from "../pages/super_market/Navbar";
 
 function Info() {
   const auth = getAuth();
@@ -21,7 +20,7 @@ function Info() {
       const docRef = doc(
         db,
         localStorage.getItem("who"),
-        auth.currentUser.email
+        getAuth().currentUser.email
       );
       const docSnap = await getDoc(docRef);
 
