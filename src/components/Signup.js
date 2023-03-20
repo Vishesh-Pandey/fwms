@@ -10,6 +10,7 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const db = getFirestore(app);
@@ -89,7 +90,9 @@ function Signup() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>Signup</h1>
+            <h1>
+              Signup / <Link to="/login">Login</Link>
+            </h1>
           </div>
         </div>
         <div className="row">
@@ -172,9 +175,9 @@ function Signup() {
             >
               Signup as {localStorage.getItem("who")}
             </button>
-            <button className="btn btn-secondary w-100 my-2">
+            <Link className="btn btn-secondary w-100 my-2" to="/getstarted">
               Go back to previous page
-            </button>
+            </Link>
           </div>
         </div>
       </div>

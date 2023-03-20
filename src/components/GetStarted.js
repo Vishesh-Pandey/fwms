@@ -8,7 +8,7 @@ function GetStarted() {
       <div className="container text-center">
         <div className="row py-5">
           <div className="col py-3">
-            <h1>HEY, ARE YOU?</h1>
+            <h1>WHAT'S YOUR ROLE?</h1>
           </div>
         </div>
         <div className="row py-3">
@@ -33,7 +33,7 @@ function GetStarted() {
           <div className="col-lg-4 col-md-6 my-2">
             <div
               onClick={() => {
-                localStorage.setItem("who", "Restaurant");
+                localStorage.setItem("who", "restaurant");
                 navigate("/signup");
               }}
               className="card h-100 w-75 text-bg-light mb-3 m-auto"
@@ -54,7 +54,7 @@ function GetStarted() {
           <div className="col-lg-4 col-md-6 my-2">
             <div
               onClick={() => {
-                localStorage.setItem("who", "Food Donor");
+                localStorage.setItem("who", "food_donor");
                 navigate("/signup");
               }}
               className="card h-100 w-75 text-bg-light mb-3 m-auto"
@@ -75,7 +75,7 @@ function GetStarted() {
           <div className="col-lg-4 col-md-6 my-2">
             <div
               onClick={() => {
-                localStorage.setItem("who", "Organisation");
+                localStorage.setItem("who", "organisation");
                 navigate("/signup");
               }}
               className="card h-100 w-75 text-bg-light mb-3 m-auto"
@@ -95,7 +95,7 @@ function GetStarted() {
           <div className="col-lg-4 col-md-6 my-2">
             <div
               onClick={() => {
-                localStorage.setItem("who", "Customer");
+                localStorage.setItem("who", "customer");
                 navigate("/signup");
               }}
               className="card h-100 w-75 text-bg-light mb-3 m-auto"
@@ -115,7 +115,7 @@ function GetStarted() {
           <div className="col-lg-4 col-md-6 my-2">
             <div
               onClick={() => {
-                localStorage.setItem("who", "Animal Shelter");
+                localStorage.setItem("who", "animal_shelter");
                 navigate("/signup");
               }}
               className="card h-100 w-75 text-bg-light mb-3 m-auto"
