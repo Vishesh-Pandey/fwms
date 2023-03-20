@@ -5,8 +5,12 @@ import { getFirestore, setDoc, doc } from "firebase/firestore";
 
 import { app } from "../../firebase";
 
+import { getAuth } from "firebase/auth";
+
 function AddProduct() {
   const db = getFirestore(app);
+  const auth = getAuth();
+
   const nameRef = useRef();
   const priceRef = useRef();
   const discountRef = useRef();
@@ -15,13 +19,24 @@ function AddProduct() {
 
   const addData = async () => {
     // Add a new document in collection "cities"
-    await setDoc(doc(db, localStorage.getItem("who")), {
-      name: nameRef.current.value,
-      price: priceRef.current.value,
-      discounted_price: discountRef.current.value,
-      quantity: qtyRef.current.value,
-      exp_date: expiryRef.current.value,
-    });
+    await setDoc(
+      doc(
+        db,
+        localStorage.getItem("who") +
+          "/" +
+          auth.currentUser.email +
+          "/products",
+        nameRef.current.value
+      ),
+      {
+        name: nameRef.current.value,
+        price: priceRef.current.value,
+        discounted_price: discountRef.current.value,
+        quantity: qtyRef.current.value,
+        exp_date: expiryRef.current.value,
+      }
+    );
+    alert("Done");
   };
 
   return (
@@ -61,12 +76,14 @@ function AddProduct() {
             />
             <input
               ref={expiryRef}
-              type="text"
+              type="datetime-local"
               className="form-control"
               placeholder="Enter Product Expiry Date"
             />
 
-            <button className="btn btn-secondary w-100">Add</button>
+            <button onClick={addData} className="btn btn-secondary w-100">
+              Add
+            </button>
           </div>
         </div>
       </div>

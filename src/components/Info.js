@@ -16,22 +16,23 @@ function Info() {
     pin: "loading...",
   });
 
-  const getInfo = async () => {
-    const docRef = doc(db, "supermarket", localStorage.getItem("who"));
-    const docSnap = await getDoc(docRef);
-    console.log("This is ");
-    console.log(docSnap);
-    const unsub = onSnapshot(
-      doc(db, localStorage.getItem("who"), auth.currentUser.email),
-      (doc) => {
-        console.log("Current data: ", doc.data());
-        setinfo(doc.data());
-        console.log(info);
-      }
-    );
-  };
-
   useEffect(() => {
+    const getInfo = async () => {
+      const docRef = doc(
+        db,
+        localStorage.getItem("who"),
+        auth.currentUser.email
+      );
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        setinfo(docSnap.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    };
     getInfo();
   }, []);
 
@@ -40,17 +41,11 @@ function Info() {
       <div className="container">
         <div className="row">
           <div className="col">
-            {Object.keys(info).map((element, index) => {
-              return (
-                <div key={index}>
-                  <h2>
-                    {element}: {info[element]}
-                  </h2>
-                </div>
-              );
-            })}
-            <p>Name : {user.email}</p>
-            <button onClick={getInfo}>click</button>
+            <p>Name : {info.name}</p>
+            <p>Role : {info.role}</p>
+            <p>Address : {info.address}</p>
+            <p>Pin : {info.pin}</p>
+            <p>Email : {user.email}</p>
           </div>
         </div>
       </div>

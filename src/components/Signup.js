@@ -101,7 +101,7 @@ function Signup() {
               ref={nameRef}
               type="text"
               className="form-control"
-              placeholder="Enter Name"
+              placeholder="Enter Full Name"
               required
             />
           </div>
@@ -125,7 +125,7 @@ function Signup() {
               ref={addRef}
               type="text"
               className="form-control"
-              placeholder="Enter Addresss"
+              placeholder="Enter Residential Addresss"
               required
             />
           </div>
@@ -137,7 +137,7 @@ function Signup() {
               ref={emailRef}
               type="text"
               className="form-control"
-              placeholder="Enter Email"
+              placeholder="Enter Email Address"
               required
             />
           </div>
@@ -149,7 +149,7 @@ function Signup() {
               ref={passwordRef}
               type="text"
               className="form-control"
-              placeholder="Enter password"
+              placeholder="Enter Password"
               required
             />
           </div>
@@ -161,7 +161,7 @@ function Signup() {
               ref={confirmPasswordRef}
               type="text"
               className="form-control"
-              placeholder="Confirm password"
+              placeholder="Confirm Password"
               required
             />
           </div>
