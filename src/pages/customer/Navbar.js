@@ -27,15 +27,7 @@ function Navbar() {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/cart"
-                >
-                  <i class="bi bi-cart-fill"></i>
-                </Link>
-              </li>
+              <li className="nav-item"></li>
             </ul>
             <form className="d-flex" role="search">
               <input
@@ -47,6 +39,9 @@ function Navbar() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
+              <Link className="nav-link active" aria-current="page" to="/cart">
+                <i class="bi bi-cart-fill"></i>
+              </Link>
             </form>
           </div>
         </div>

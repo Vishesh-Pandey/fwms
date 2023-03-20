@@ -35,6 +35,15 @@ function Navbar() {
                 <Link
                   className="nav-link active"
                   aria-current="page"
+                  to="/myproducts"
+                >
+                  My Product
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
                   to="/addproduct"
                 >
                   Add Product

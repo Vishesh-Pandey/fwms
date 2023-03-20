@@ -6,10 +6,12 @@ import { getFirestore, setDoc, doc } from "firebase/firestore";
 import { app } from "../../firebase";
 
 import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const db = getFirestore(app);
   const auth = getAuth();
+  const navigate = useNavigate();
 
   const nameRef = useRef();
   const priceRef = useRef();
@@ -36,7 +38,7 @@ function AddProduct() {
         exp_date: expiryRef.current.value,
       }
     );
-    alert("Done");
+    navigate("/myproducts");
   };
 
   return (

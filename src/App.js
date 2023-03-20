@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import AddProduct from "./pages/super_market/AddProduct";
 import Customer from "./pages/customer/Customer";
 import Cart from "./pages/customer/Cart";
+import MyProducts from "./pages/super_market/MyProducts";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/* supermarket */}
         <Route path="/supermarket" element={<SuperMarket />} />
         <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/myproducts" element={<MyProducts />} />
 
         {/* customer */}
         <Route path="/customer" element={<Customer />} />
