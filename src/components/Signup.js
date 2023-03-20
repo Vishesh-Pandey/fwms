@@ -30,25 +30,12 @@ function Signup() {
           name: nameRef.current.value,
           pin: pinRef.current.value,
           address: addRef.current.value,
+          email: emailRef.current.value,
         }
       );
     } catch (e) {
       console.error("Error adding document: ", e);
       alert("Incountered some issue while updating database ");
-    }
-
-    try {
-      await setDoc(
-        doc(db, localStorage.getItem("who"), emailRef.current.value),
-        {
-          role: localStorage.getItem("who"),
-          name: nameRef.current.value,
-          pin: pinRef.current.value,
-          address: addRef.current.value,
-        }
-      );
-    } catch (error) {
-      console.log("There is some issue");
     }
   };
 

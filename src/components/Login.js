@@ -13,7 +13,6 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        alert("sign in success");
         const user = userCredential.user;
         console.log(user);
         if (localStorage.getItem("who") === "supermarket") {

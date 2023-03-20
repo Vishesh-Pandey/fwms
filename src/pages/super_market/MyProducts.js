@@ -57,10 +57,9 @@ function MyProducts() {
                     {element.name}
                   </div>
                   <div className="card-body text-secondary">
-                    <h5 className="card-title">Success card title</h5>
-                    <div className="card-text">Price : {element.price}</div>
+                    <div className="card-text">Price : ₹{element.price}</div>
                     <div className="card-text">
-                      Discounted : {element.discounted_price}
+                      Discounted : ₹{element.discounted_price}
                     </div>
                     <div className="card-text">
                       Quantity : {element.quantity}

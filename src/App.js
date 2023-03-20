@@ -1,15 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
-import GetStarted from "./components/GetStarted";
-import Signup from "./components/Signup";
-import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
-import SuperMarket from "./pages/super_market/SuperMarket";
+
+import Home from "./components/Home";
+import GetStarted from "./components/GetStarted";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
+
+import SuperMarket from "./pages/super_market/SuperMarket";
 import AddProduct from "./pages/super_market/AddProduct";
+import MyProducts from "./pages/super_market/MyProducts";
+
+import CustomerProduct from "./pages/customer/CustomerProduct";
+import SupermarketForCustomer from "./pages/customer/SupermarketForCustomer";
 import Customer from "./pages/customer/Customer";
 import Cart from "./pages/customer/Cart";
-import MyProducts from "./pages/super_market/MyProducts";
 
 function App() {
   return (
@@ -30,6 +34,11 @@ function App() {
         {/* customer */}
         <Route path="/customer" element={<Customer />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/customer_products" element={<CustomerProduct />} />
+        <Route
+          path="/superMarketForCustomer"
+          element={<SupermarketForCustomer />}
+        />
       </Routes>
     </div>
   );

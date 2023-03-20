@@ -45,7 +45,7 @@ function GetStarted() {
                   <i className="bi bi-cup-hot"></i>
                 </h5>
                 <p className="card-text">
-                  For unsold to be used for discounted selling/ donation/
+                  For unsold food to be used for discounted selling/ donation/
                   decomposition.
                 </p>
               </div>
