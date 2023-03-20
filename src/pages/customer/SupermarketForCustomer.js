@@ -25,14 +25,16 @@ function SupermarketForCustomer() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <button
-            onClick={getSupermarketForCustomer}
-            className={` ${
-              supermarket.length === 0 ? "btn btn-secondary" : "d-none"
-            }`}
-          >
-            Show Supermarts
-          </button>
+          <div className="col-md-6 m-auto py-5">
+            <button
+              onClick={getSupermarketForCustomer}
+              className={` ${
+                supermarket.length === 0 ? "btn btn-secondary w-100" : "d-none"
+              }`}
+            >
+              Show Supermarts
+            </button>
+          </div>
         </div>
         <div className="row">
           {supermarket.map((element, index) => {

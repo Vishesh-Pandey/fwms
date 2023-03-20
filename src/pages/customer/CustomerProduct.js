@@ -6,27 +6,32 @@ import { db } from "../../firebase";
 import Navbar from "./Navbar";
 
 function CustomerProduct() {
+  let supermarketArray = [];
   const [products, setproducts] = useState([]);
   const [productInformation, setproductInformation] = useState([]);
+  const [productsVisible, setproductsVisible] = useState(false);
 
-  const getProducts = async () => {
+  const getProductCard = async () => {
+    setproductsVisible(true);
+    supermarketArray = [];
     const q = query(collection(db, "supermarket/"));
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
-      setproducts((products) => [...products, doc.data()]);
+      supermarketArray.push(doc.data());
+      //   setproducts((products) => [...products, doc.data()]);
     });
-  };
-
-  const getProductCard = async () => {
     console.log("working");
-    for (let i = 0; i < products.length; i++) {
+    console.log(products);
+    for (let i = 0; i < supermarketArray.length; i++) {
       const q = query(
-        collection(db, "supermarket/" + products.email + "/products")
+        collection(
+          db,
+          "supermarket/" + supermarketArray[i].email + "/products/"
+        )
       );
-
       const querySnapshot = await getDocs(q);
 
       querySnapshot.forEach((doc) => {
@@ -44,52 +49,50 @@ function CustomerProduct() {
   return (
     <>
       <Navbar />
-      <div>
-        <button
-          onClick={getProducts}
-          className={`${
-            products.length === 0 ? "btn btn-secondary" : "d-none"
-          }`}
-        >
-          see Supermarket
-        </button>
-
+      <div className="container">
         <div className="row">
-          {products.map((element, index) => {
-            return (
-              <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
-                <div
-                  className="card border-secondary mb-3 m-auto"
-                  style={{ maxWidth: "18rem" }}
-                >
-                  <div className="card-header bg-transparent border-success fw-bold">
-                    {element.name}
-                  </div>
-                  <div className="card-body text-secondary">
-                    <div className="card-text">Address : {element.address}</div>
-                    <div className="card-text">Pin Code : {element.pin}</div>
-                  </div>
-                  <div className="card-footer bg-transparent border-success text-danger">
-                    Rating : 5
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="row">
-          <div className="col">
-            <button onClick={getProductCard} className="btn btn-primary">
-              Get Product Cards
+          <div className="col-md-6 m-auto py-5">
+            <button
+              onClick={getProductCard}
+              className={`${
+                productsVisible === false ? "btn btn-secondary w-100" : "d-none"
+              }`}
+            >
+              Show Products
             </button>
           </div>
         </div>
         <div className="row">
           {productInformation.map((element, index) => {
             return (
-              <div className="col">
-                <p>{element}</p>
+              <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
+                <div
+                  className="card text-bg-light mb-3 m-auto"
+                  style={{ maxWidth: "18rem" }}
+                >
+                  <div className="card-header">{element.name}</div>
+                  <div className="card-body">
+                    <div className="card-text ">
+                      Price :
+                      <span className="text-decoration-line-through">
+                        {element.price}
+                      </span>
+                    </div>
+                    <div className="card-text ">
+                      Discounted Price :
+                      <span className="text-success">
+                        {element.discounted_price}
+                      </span>
+                    </div>
+                    <div className="card-text ">
+                      Quantity remaining :
+                      <span className="text-danger">{element.quantity}</span>
+                    </div>
+                    <button className="btn btn-outline-secondary w-100 my-2">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           })}

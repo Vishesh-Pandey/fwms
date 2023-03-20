@@ -1,7 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    console.log("Logging out...");
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/getStarted");
+      })
+      .catch((error) => {
+        // An error happened.
+        alert("Issue while logging out");
+      });
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -58,7 +74,11 @@ function Navbar() {
               >
                 Your Cart <i class="bi bi-cart-fill"></i>
               </Link>
-              <button className="btn btn-outline-warning" type="submit">
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline-warning"
+                type="submit"
+              >
                 Log Out
               </button>
             </div>
