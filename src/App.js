@@ -14,6 +14,7 @@ import CustomerProduct from "./pages/customer/CustomerProduct";
 import SupermarketForCustomer from "./pages/customer/SupermarketForCustomer";
 import Customer from "./pages/customer/Customer";
 import Cart from "./pages/customer/Cart";
+import CartProduct from "./pages/customer/CartProduct";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/customer" element={<Customer />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/customer_products" element={<CustomerProduct />} />
+        <Route path="/cartProduct" element={<CartProduct />} />
         <Route
           path="/superMarketForCustomer"
           element={<SupermarketForCustomer />}

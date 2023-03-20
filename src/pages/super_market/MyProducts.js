@@ -1,10 +1,14 @@
-import { getAuth } from "firebase/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { getAuth } from "firebase/auth";
 import { db } from "../../firebase";
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, deleteDoc, doc } from "firebase/firestore";
+
 import Navbar from "./Navbar";
 
 function MyProducts() {
+  const navigate = useNavigate();
   const [products, setproducts] = useState([]);
 
   const getMyProducts = async () => {
@@ -24,6 +28,22 @@ function MyProducts() {
       console.log(doc.id, " => ", doc.data());
       setproducts((products) => [...products, doc.data()]);
     });
+  };
+
+  const addProducts = () => {
+    navigate("/addproduct");
+  };
+
+  const deleteProduct = async (product) => {
+    await deleteDoc(
+      doc(
+        db,
+        "supermarket/" + getAuth().currentUser.email + "/products",
+        product
+      )
+    );
+    setproducts((products) => []);
+    getMyProducts();
   };
 
   return (
@@ -55,6 +75,13 @@ function MyProducts() {
                 >
                   <div className="card-header bg-transparent border-success fw-bold">
                     {element.name}
+                    <i
+                      onClick={() => {
+                        deleteProduct(element.name);
+                      }}
+                      class="bi bi-trash3 float-end  "
+                      style={{ cursor: "pointer" }}
+                    ></i>
                   </div>
                   <div className="card-body text-secondary">
                     <div className="card-text">Price : ₹{element.price}</div>
@@ -72,6 +99,18 @@ function MyProducts() {
               </div>
             );
           })}
+          <div className="col-lg-3 col-md-4 col-sm-6">
+            <button
+              onClick={addProducts}
+              className={`${
+                products.length === 0
+                  ? "d-none"
+                  : "btn btn-outline-success w-100"
+              }`}
+            >
+              Add product
+            </button>
+          </div>
         </div>
       </div>
     </>

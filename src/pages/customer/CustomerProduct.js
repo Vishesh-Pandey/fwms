@@ -4,8 +4,10 @@ import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
 import Navbar from "./Navbar";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function CustomerProduct() {
+  const navigate = useNavigate();
   let supermarketArray = [];
   const [products, setproducts] = useState([]);
   const [productInformation, setproductInformation] = useState([]);
@@ -88,7 +90,19 @@ function CustomerProduct() {
                       Quantity remaining :
                       <span className="text-danger">{element.quantity}</span>
                     </div>
-                    <button className="btn btn-outline-secondary w-100 my-2">
+                    <button
+                      onClick={() => {
+                        localStorage.setItem("cartProductName", element.name);
+                        localStorage.setItem("cartProductPrice", element.price);
+                        localStorage.setItem(
+                          "cartProductDiscountedPrice",
+                          element.discounted_price
+                        );
+                        localStorage.setItem("cartProductQty", 1);
+                        navigate("/cartProduct");
+                      }}
+                      className="btn btn-outline-secondary w-100 my-2"
+                    >
                       Add to Cart
                     </button>
                   </div>

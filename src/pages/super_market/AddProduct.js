@@ -51,35 +51,35 @@ function AddProduct() {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-md-6 m-auto">
             <input
               ref={nameRef}
               type="text"
-              className="form-control"
+              className="form-control my-2"
               placeholder="Enter Product Name"
             />
             <input
               ref={priceRef}
               type="text"
-              className="form-control"
+              className="form-control my-2"
               placeholder="Enter Product Price"
             />
             <input
               ref={discountRef}
               type="text"
-              className="form-control"
+              className="form-control my-2"
               placeholder="Enter Product Discounted Price"
             />
             <input
               type="text"
               ref={qtyRef}
-              className="form-control"
+              className="form-control my-2"
               placeholder="Enter Product Qty"
             />
             <input
               ref={expiryRef}
               type="datetime-local"
-              className="form-control"
+              className="form-control my-2"
               placeholder="Enter Product Expiry Date"
             />
 
