@@ -25,9 +25,9 @@ function AddProduct() {
       doc(
         db,
         localStorage.getItem("who") +
-          "/" +
-          auth.currentUser.email +
-          "/products",
+        "/" +
+        auth.currentUser.email +
+        "/products",
         nameRef.current.value
       ),
       {
@@ -44,14 +44,14 @@ function AddProduct() {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="container py-5">
         <div className="row">
           <div className="col">
-            <h1>Add Product here</h1>
+            <h3 className="text-center">Add Your Product Here</h3>
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 m-auto">
+          <div className="col-md-6 m-auto text-center">
             <input
               ref={nameRef}
               type="text"
@@ -83,8 +83,8 @@ function AddProduct() {
               placeholder="Enter Product Expiry Date"
             />
 
-            <button onClick={addData} className="btn btn-secondary w-100">
-              Add
+            <button onClick={addData} className="btn btn-success w-25 py-2">
+              <i class="bi bi-check-circle"></i>
             </button>
           </div>
         </div>

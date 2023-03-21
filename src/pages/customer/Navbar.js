@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
 
 function Navbar() {
+  const location = useLocation();
   const navigate = useNavigate();
   const handleLogout = () => {
     console.log("Logging out...");
@@ -20,7 +21,7 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Customer
@@ -40,7 +41,7 @@ function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/customer" ? "active" : ""}`}
                   aria-current="page"
                   to="/customer"
                 >
@@ -49,7 +50,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/customer_products" ? "active" : ""}`}
                   aria-current="page"
                   to="/customer_products"
                 >
@@ -58,7 +59,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/supermarketForCustomer" ? "active" : ""}`}
                   aria-current="page"
                   to="/supermarketForCustomer"
                 >

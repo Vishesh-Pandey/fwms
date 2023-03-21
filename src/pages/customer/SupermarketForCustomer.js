@@ -25,14 +25,13 @@ function SupermarketForCustomer() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <div className="col-md-6 m-auto py-5">
+          <div className="col-md-6 m-auto py-5 text-center">
             <button
               onClick={getSupermarketForCustomer}
-              className={` ${
-                supermarket.length === 0 ? "btn btn-secondary w-100" : "d-none"
-              }`}
+              className={` ${supermarket.length === 0 ? "btn btn-success w-25 py-2" : "d-none"
+                }`}
             >
-              Show Supermarts
+              Show mart <i class="bi bi-arrow-right-circle"></i>
             </button>
           </div>
         </div>

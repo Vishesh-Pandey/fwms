@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { getAuth, signOut } from "firebase/auth";
 
 function Navbar() {
+  let location = useLocation();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,10 +23,10 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/supermarket">
-            Supermarket
+            <b>Supermarket</b>
           </Link>
           <button
             className="navbar-toggler"
@@ -42,7 +43,7 @@ function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/supermarket" ? "active" : ""}`}
                   aria-current="page"
                   to="/supermarket"
                 >
@@ -51,7 +52,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/myproducts" ? "active" : ""}`}
                   aria-current="page"
                   to="/myproducts"
                 >
@@ -60,7 +61,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${location.pathname === "/addproduct" ? "active" : ""}`}
                   aria-current="page"
                   to="/addproduct"
                 >
